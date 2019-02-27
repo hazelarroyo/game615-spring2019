@@ -1,15 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlanePilot : MonoBehaviour
 {
 
-    public float speed = 90.0f;
+    public float speed = 50.0f;
+
+    private int score;
+    public Text scoreText;
+    public Text winText;
 
     void Start()
     {
         Debug.Log("plane pilot script added to: " + gameObject.name);
+
+        score = 0;
     }
 
 
@@ -29,11 +36,36 @@ public class PlanePilot : MonoBehaviour
             speed = 35.0f;
         }
 
+        if(speed > 90.0f)
+        {
+            speed = 90.0f;
+        }
+
         transform.Rotate(Input.GetAxis("Vertical"), 0.0f, -Input.GetAxis("Horizontal"));
         float terrainHeightWhereWeAre = Terrain.activeTerrain.SampleHeight(transform.position);
         if (terrainHeightWhereWeAre > transform.position.y)
         {
             transform.position = new Vector3(transform.position.x, terrainHeightWhereWeAre, transform.position.z);
         }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Pick Up"))
+        {
+            other.gameObject.SetActive(false);
+            score = score + 1;
+            UpdateScore();
+        }
+
+        if(score > 4)
+        {
+            winText.text = "You Win!";
+        }
+    }
+
+    void UpdateScore()
+    {
+        scoreText.text = "Score: " + score;
     }
 }
