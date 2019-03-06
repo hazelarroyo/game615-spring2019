@@ -9,18 +9,28 @@ public class EndTrigger : MonoBehaviour
     public Text timeUp;
 
     public Text timer;
+    private bool keepTiming = true;
 
-    private float timeRemaining = 90f;
+    private float timeRemaining = 60f;
+
 
     void Update()
     {
-        timeRemaining = timeRemaining - Time.deltaTime;
-        timer.text = (timeRemaining).ToString("0");
+        if (keepTiming)
+        {
+            timeRemaining = timeRemaining - Time.deltaTime;
+            timer.text = (timeRemaining).ToString("0");
+        }
+
 
         if (timeRemaining < 0f)
         {
+            keepTiming = false;
             timeUp.text = "Time's Up!";
+            timer.text = (" ");
         }
+
+       
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,6 +39,8 @@ public class EndTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player has entered the trigger");
+            timer.text = (" ");
+            keepTiming = false;
             UpdateEnd();
         }
     }
