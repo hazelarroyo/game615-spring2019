@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     float moveSpeed = 50f;
-    float rotateSpeed = 60f;
+    float rotateSpeed = 100f;
     float jumpForce = 1f;
 
     //NOTE: Changing this will drastically affect the jumpForce and fall speed.
@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     private int score;
     public Text scoreText;
+    private int winScore = 7;
+    public Text winScoreText;
 
     void Start()
     {
@@ -34,6 +36,7 @@ public class PlayerController : MonoBehaviour
         previousIsGroundedValue = cc.isGrounded;
 
         score = 0;
+
     }
 
     void Update()
@@ -77,6 +80,9 @@ public class PlayerController : MonoBehaviour
         Vector3 cameraPosition = transform.position + (Vector3.up * camFollowAbove) + (-transform.forward * camFollowBehind);
         Camera.main.transform.position = cameraPosition;
         Camera.main.transform.LookAt(transform.position + transform.forward * camLookAhead);
+    
+
+
     }
 
     //Trigger collider to pick up collectable items in scene - doesn't destroy 
@@ -95,6 +101,11 @@ public class PlayerController : MonoBehaviour
     void UpdateScore()
     {
         scoreText.text = "" + score;
+    }
+
+    void UpdateEnding()
+    {
+        winScoreText.text = "You Win!";
     }
 }
 

@@ -11,7 +11,7 @@ public class EndTrigger : MonoBehaviour
     public Text timer;
     private bool keepTiming = true;
 
-    private float timeRemaining = 60f;
+    private float timeRemaining = 600f;
 
 
     void Update()
