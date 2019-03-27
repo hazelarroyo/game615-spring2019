@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EndTrigger : MonoBehaviour
 {
@@ -27,15 +28,16 @@ public class EndTrigger : MonoBehaviour
         if (timeRemaining < 0f)
         {
             keepTiming = false;
-            timeUp.text = "Time's Up!";
             timer.text = (" ");
+            SceneManager.LoadScene("endScreen");
         }
 
         if(PlayerController.healthPoints < 0f)
         {
             keepTiming = false;
-            gameOver.text = "Game Over!";
+            SceneManager.LoadScene("endScreen"); 
             timer.text = (" ");
+
         }
 
     }
@@ -54,7 +56,7 @@ public class EndTrigger : MonoBehaviour
 
     void UpdateEnd()
     {
-        gameEnd.text = "You Win!";
+        SceneManager.LoadScene("winScreen");
     }
 
 }
