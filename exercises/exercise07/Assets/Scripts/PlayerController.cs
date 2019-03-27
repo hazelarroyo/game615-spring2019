@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     public Text scoreText;
     public Text winScoreText;
 
-    public static float healthPoints = 10f;
+    public static float healthPoints = 100f;
 
     void Start()
     {
