@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
 
     private int score;
     public Text scoreText;
-    private int winScore = 7;
     public Text winScoreText;
 
     void Start()
