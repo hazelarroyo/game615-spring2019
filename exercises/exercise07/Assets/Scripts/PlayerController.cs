@@ -20,9 +20,9 @@ public class PlayerController : MonoBehaviour
     CharacterController cc;
 
     //Camera controls 
-    float camLookAhead = 8f;
-    float camFollowBehind = 10f;
-    float camFollowAbove = 5f;
+    public float camLookAhead = 8f;
+    public float camFollowBehind = 10f;
+    public float camFollowAbove = 10f;
 
     private int score;
     public Text scoreText;
