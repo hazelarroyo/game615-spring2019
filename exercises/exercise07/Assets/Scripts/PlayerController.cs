@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     public Text scoreText;
     public Text winScoreText;
 
+    public static float healthPoints = 100f;
+
     void Start()
     {
         cc = gameObject.GetComponent<CharacterController>();
@@ -40,6 +42,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(healthPoints);
+
         float hAxis = Input.GetAxis("Horizontal");
         float vAxis = Input.GetAxis("Vertical");
 
@@ -95,6 +99,13 @@ public class PlayerController : MonoBehaviour
             score = score + 1;
             UpdateScore();
         }
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Player collided with enemy");
+            healthPoints = PlayerController.healthPoints - 1f;
+
+        }
     }
 
     void UpdateScore()
@@ -106,5 +117,6 @@ public class PlayerController : MonoBehaviour
     {
         winScoreText.text = "You Win!";
     }
+
 }
 

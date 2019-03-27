@@ -10,6 +10,8 @@ public class EnemyMovement : MonoBehaviour
     Transform target;
     NavMeshAgent agent;
 
+    private float healthPoints;
+
     private void Start()
     {
         target = PlayerManager.instance.player.transform;
@@ -31,5 +33,7 @@ public class EnemyMovement : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
+
+
 }
 
