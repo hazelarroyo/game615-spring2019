@@ -7,6 +7,7 @@ public class EndTrigger : MonoBehaviour
 {
     public Text gameEnd;
     public Text timeUp;
+    public Text gameOver;
 
     public Text timer;
     private bool keepTiming = true;
@@ -30,7 +31,13 @@ public class EndTrigger : MonoBehaviour
             timer.text = (" ");
         }
 
-       
+        if(PlayerController.healthPoints < 0f)
+        {
+            keepTiming = false;
+            gameOver.text = "Game Over!";
+            timer.text = (" ");
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
