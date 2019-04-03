@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 1ada65782b3a04df28e74037f6edb8ab
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - playerCharacter: {fileID: 5587536325517404886, guid: 26c0f9543a47a460f82f85014a59c9fa,
+      type: 3}
+  - fadePanelImg: {fileID: 5400693979752462222, guid: a68e44298da124d1c96c47e575a92758,
+      type: 3}
+  - playerTalkPanel: {fileID: 2095562841966586826, guid: 1c964236418824bb4a1cc0a6afd3079e,
+      type: 3}
+  - playerText: {fileID: 3159644050265168219, guid: 915ccb2e0797546c89efa134de8c191d,
+      type: 3}
+  - jasonTalkPanel: {fileID: 4379237775956127138, guid: 0b78ef8ba266848c894db03fb12ac6c8,
+      type: 3}
+  - jasonText: {fileID: 3261082077824928208, guid: 30506becdbb224711abf80e827a4531c,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
