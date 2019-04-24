@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
-    #region Singleton
+    private bool changeScene = false;
+
+     #region Singleton
 
     public static PlayerManager instance;
 
@@ -18,19 +20,22 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject player;
 
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-
-        if (other.gameObject.CompareTag("SceneChange"))
+        if (changeScene)
         {
-            Debug.Log("Player has entered the trigger");
-            UpdateEnd();
+           SceneManager.LoadScene("LevelTwo");
         }
     }
 
-    void UpdateEnd()
+    private void OnTriggerEnter(Collider Ground)
     {
-        SceneManager.LoadScene("LevelTwo");
+
+        if (Ground.gameObject.CompareTag("SceneChange"))
+        {
+            Debug.Log("Player has entered the trigger");
+            changeScene = true;
+        }
     }
 
 }

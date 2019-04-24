@@ -12,8 +12,8 @@ public class CameraRotation : MonoBehaviour
     public float distance = 10.0f;
     public float currentX = 0.0f;
     public float currentY = 0.0f;
-    public float sensitivityX = 4.0f;
-    public float sensitivityY = 1.0f;
+    public float sensitivityX = 100.0f;
+    public float sensitivityY = 100.0f;
 
     //Can Use Touch
     bool isTouchDevice;
@@ -68,7 +68,7 @@ public class CameraRotation : MonoBehaviour
     float yValue;
     float yValueMinMax = 5.0f;
 
-    float cameraSpeed = 20.0f;// Greater the lower speed
+    float cameraSpeed = 2.0f;// Greater the lower speed
     Vector3 accelometerSmoothValue;
 
     void cameraRotationAccelerometer()

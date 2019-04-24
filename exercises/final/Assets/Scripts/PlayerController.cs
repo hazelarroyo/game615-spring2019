@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 1f;
 
     //NOTE: Changing this will drastically affect the jumpForce and fall speed.
-    float gravityModifier = 0.2f;
+    float gravityModifier = 0.1f;
 
     float yVelocity = 0;
     bool previousIsGroundedValue;

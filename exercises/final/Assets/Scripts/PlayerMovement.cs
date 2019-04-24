@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 10f;
     public float jumpForce = 1f;
 
+    bool previousIsGroundedValue;
+
     public LayerMask groundLayers;
     public CapsuleCollider col;
     private Rigidbody rb;
