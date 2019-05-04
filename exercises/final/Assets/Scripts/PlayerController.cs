@@ -1,6 +1,4 @@
-﻿
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,18 +10,14 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 1f;
 
     //NOTE: Changing this will drastically affect the jumpForce and fall speed.
-    float gravityModifier = 0.1f;
+    float gravityModifier = 0.2f;
 
     float yVelocity = 0;
     bool previousIsGroundedValue;
 
+    public float healthPoints = 10f;
+
     CharacterController cc;
-
-    private int score;
-    public Text scoreText;
-    public Text winScoreText;
-
-    public static float healthPoints = 100f;
 
     void Start()
     {
@@ -31,18 +25,15 @@ public class PlayerController : MonoBehaviour
 
         previousIsGroundedValue = cc.isGrounded;
 
-        score = 0;
-
     }
 
     void Update()
     {
 
-        float hAxis = Input.GetAxis("Horizontal");
-        float vAxis = Input.GetAxis("Vertical");
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
 
-        transform.Rotate(0, hAxis * rotateSpeed * Time.deltaTime, 0);
-
+        transform.Rotate(0, moveHorizontal * rotateSpeed * Time.deltaTime, 0);
 
         //--- DEALING WITH GRAVITY ---
         if (!cc.isGrounded)
@@ -53,6 +44,7 @@ public class PlayerController : MonoBehaviour
             {
                 yVelocity = 0;
             }
+
         }
         else
         {
@@ -67,30 +59,13 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        Vector3 amountToMove = transform.forward * vAxis * moveSpeed * Time.deltaTime;
-
+        Vector3 amountToMove = transform.forward * moveVertical * moveSpeed * Time.deltaTime;
+       
         amountToMove.y = yVelocity;
         cc.Move(amountToMove);
 
         previousIsGroundedValue = cc.isGrounded;
 
-
-
-    }
-
-    //Trigger collider to pick up collectable items in scene - doesn't destroy 
-    //objects; deactivates the objects
-
-
-
-    void UpdateScore()
-    {
-        scoreText.text = "" + score;
-    }
-
-    void UpdateEnding()
-    {
-        winScoreText.text = "You Win!";
     }
 
 }

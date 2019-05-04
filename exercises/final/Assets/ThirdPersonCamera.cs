@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
-    private const float Y_ANGLE_MIN = -20.0f;
+    private const float Y_ANGLE_MIN = 0.0f;
     private const float Y_ANGLE_MAX = 70.0f;
 
     public Transform lookAt;
