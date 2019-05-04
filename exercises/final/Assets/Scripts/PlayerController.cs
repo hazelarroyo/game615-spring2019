@@ -7,7 +7,9 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 10f;
     public float rotateSpeed = 100f;
-    public float jumpForce = 1f;
+    public float jumpForce = 1f; 
+
+    public Quaternion targetRotation;
 
     //NOTE: Changing this will drastically affect the jumpForce and fall speed.
     float gravityModifier = 0.2f;
@@ -29,7 +31,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
@@ -65,7 +66,6 @@ public class PlayerController : MonoBehaviour
         cc.Move(amountToMove);
 
         previousIsGroundedValue = cc.isGrounded;
-
     }
 
 }

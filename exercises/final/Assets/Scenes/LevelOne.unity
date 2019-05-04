@@ -10218,7 +10218,6 @@ GameObject:
   - component: {fileID: 534669904}
   - component: {fileID: 534669903}
   - component: {fileID: 534669906}
-  - component: {fileID: 534669907}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -10297,40 +10296,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 340328f214307494c868dbc273d2ac26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lookAt: {fileID: 1725010569}
-  camTransform: {fileID: 1725010569}
-  distance: 10
-  currentX: 0
-  currentY: 0
-  sensitivityX: 100
-  sensitivityY: 100
-  AccelerometerUpdateInterval: 0.01
-  LowPassKernelWidthInSeconds: 0.001
-  lowPassValue: {x: 0, y: 0, z: 0}
---- !u!114 &534669907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534669902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342f583c41dca428a97a59c019f9719b, type: 3}
+  m_Script: {fileID: 11500000, guid: e39f7ac9976734c1fb2533911aa9378f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookAt: {fileID: 1725010569}
-  camTransform: {fileID: 0}
-  distance: 1.7
-  currentX: 5.38
-  currentY: 17.8
-  sensitivityX: 10
-  sensitivityY: 10
+  target: {fileID: 1725010569}
+  lookSmooth: 0.09
+  offsetFromTarget: {x: 0, y: 1, z: 0}
+  xTilt: 10
 --- !u!1 &550144002
 GameObject:
   m_ObjectHideFlags: 0
@@ -31976,8 +31950,8 @@ MonoBehaviour:
   moveSpeed: 10
   rotateSpeed: 150
   jumpForce: 1
-  scoreText: {fileID: 0}
-  winScoreText: {fileID: 0}
+  targetRotation: {x: 0, y: 0, z: 0, w: 0}
+  healthPoints: 10
 --- !u!65 &1725010574
 BoxCollider:
   m_ObjectHideFlags: 0
