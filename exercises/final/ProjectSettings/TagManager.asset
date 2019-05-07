@@ -10,6 +10,7 @@ TagManager:
   - Water
   - Ladder
   - Enemy
+  - Music
   layers:
   - Default
   - TransparentFX
