@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     float yVelocity = 0;
     bool previousIsGroundedValue;
 
-    public float healthPoints = 10f;
+    public static float healthPoints = 100f;
 
     CharacterController cc;
 
@@ -66,6 +66,16 @@ public class PlayerController : MonoBehaviour
         cc.Move(amountToMove);
 
         previousIsGroundedValue = cc.isGrounded;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Player collided with enemy.");
+            healthPoints = PlayerController.healthPoints - 1f;
+            Debug.Log("Health is now:" + healthPoints);
+        }
     }
 
 }
