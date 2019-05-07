@@ -26,6 +26,6 @@ public class EndTrigger : MonoBehaviour
 
     void UpdateEnd()
     {
-        SceneManager.LoadScene("winScreen");
+        SceneManager.LoadScene("endPlane");
     }
 }
